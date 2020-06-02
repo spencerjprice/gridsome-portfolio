@@ -1,24 +1,34 @@
 <template>
 	<div class="layout">
-		<header class="header">
-			<strong>
-				<g-link to="/">{{ $static.metadata.siteName }}</g-link>
-			</strong>
-			<nav class="nav">
-				<g-link class="nav__link" to="/">Home</g-link>
-				<g-link class="nav__link" to="/blog/">Blog</g-link>
-			</nav>
-		</header>
+		<Nav />
+		<!-- Slot in the actual page content -->
 		<slot />
 	</div>
 </template>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
+<script>
+import Nav from '~/components/Nav';
 
-<style lang="scss" scoped></style>
+export default {
+	components: {
+		Nav
+	}
+};
+</script>
+
+<style lang="scss">
+body {
+	font-family: 'Work Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: $secondary;
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+}
+</style>

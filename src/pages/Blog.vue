@@ -1,6 +1,8 @@
 <template>
 	<Layout>
-		{{ $page.allPost.edges }}
+		<CommingSoon />
+
+		<!-- {{ $page.allPost.edges }} -->
 	</Layout>
 </template>
 
@@ -19,3 +21,15 @@ query {
 	}
 }
 </page-query>
+
+<script>
+import CommingSoon from '~/components/shared/CommingSoon.vue';
+export default {
+	metaInfo: {
+		title: 'Blog'
+	},
+	components: {
+		CommingSoon
+	}
+};
+</script>

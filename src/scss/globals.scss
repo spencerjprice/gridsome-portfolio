@@ -1,0 +1,50 @@
+$primary: #9c97f0;
+$secondary: #203041;
+$text: #08081b;
+
+$accent1: #b066fe;
+$accent2: #63e2ff;
+
+// #D0552E
+
+// #4A599b
+
+body {
+	color: $text;
+	margin: 0;
+	font-size: 12px;
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-weight: 500;
+	}
+}
+
+@mixin container {
+	width: 100%;
+	max-width: 1000px;
+	padding: 0 20px;
+	margin: 0 auto;
+}
+
+// Media Queries
+@mixin media-breakpoint-up($name) {
+	// Options
+	$breakpoints: (
+		xs: 0,
+		sm: 576px,
+		md: 768px,
+		lg: 992px,
+		xl: 1200px
+	);
+
+	// Map/Set the min
+	$min: map-get($breakpoints, $name);
+
+	@media (min-width: $min) {
+		@content;
+	}
+}
