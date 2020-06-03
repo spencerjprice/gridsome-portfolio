@@ -14,7 +14,7 @@ function addStyleResource(rule) {
 }
 
 module.exports = {
-	siteName: 'Spencer J',
+	siteName: 'Spencer J. Price',
 	siteUrl: 'https://spencerjprice.github.io',
 	pathPrefix: '/gridsome-portfolio',
 	plugins: [

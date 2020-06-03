@@ -19,6 +19,9 @@
 import BlenderBottle from '~/components/svgs/BlenderBottle.vue';
 
 export default {
+	metaInfo: {
+		title: 'Home'
+	},
 	components: {
 		BlenderBottle
 	}
