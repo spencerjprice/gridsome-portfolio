@@ -30,20 +30,27 @@ export default {
 
 .home {
 	@include container;
-	padding: 80px 0 100px;
+	padding: 80px 20px 100px;
 
 	&__title {
-		font-size: 6rem;
+		font-size: 3rem;
 		line-height: 1.1;
 		margin: 0;
 		font-weight: 700;
 		margin-bottom: 24px;
+		@include media-breakpoint-up(lg) {
+			font-size: 6rem;
+		}
 	}
 	&__text {
-		font-size: 2rem;
+		font-size: 1.3rem;
 		line-height: 1.5;
 		font-weight: 500;
 		margin-bottom: 80px;
+
+		@include media-breakpoint-up(lg) {
+			font-size: 2rem;
+		}
 
 		a {
 			@include link;
@@ -53,11 +60,15 @@ export default {
 
 .currently {
 	&__title {
-		font-size: 0.8rem;
+		font-size: 0.6rem;
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		font-weight: 400;
 		margin-bottom: 14px;
+
+		@include media-breakpoint-up(lg) {
+			font-size: 0.8rem;
+		}
 	}
 	a {
 		&:hover svg {
@@ -67,9 +78,13 @@ export default {
 	}
 	svg {
 		fill: $text;
-		height: 40px;
+		height: 30px;
 		width: auto;
 		transition: all ease 200ms;
+
+		@include media-breakpoint-up(lg) {
+			height: 40px;
+		}
 	}
 }
 </style>

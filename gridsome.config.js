@@ -15,6 +15,8 @@ function addStyleResource(rule) {
 
 module.exports = {
 	siteName: 'Spencer J',
+	siteUrl: 'https://spencerjprice.github.io',
+	pathPrefix: '/gridsome-portfolio',
 	plugins: [
 		{
 			use: '@gridsome/source-filesystem',

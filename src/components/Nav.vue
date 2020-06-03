@@ -1,10 +1,20 @@
 <template>
-	<header class="nav">
+	<header class="nav" :class="{ 'nav--active': showMenu }">
 		<div class="nav__container">
+			<!-- The logo in the nav -->
 			<g-link class="nav__logo" to="/">
 				<MainLogo />
 			</g-link>
-			<nav>
+
+			<!-- This is the hamburger that only shows up on mobile -->
+			<div class="hamburger" @click="toggleMenu">
+				<div class="hamburger__line" />
+				<div class="hamburger__line" />
+				<div class="hamburger__line" />
+			</div>
+
+			<!-- Here are the actual nav links -->
+			<nav class="nav__links">
 				<g-link class="nav__link" to="/about/">About</g-link>
 				<g-link class="nav__link" to="/blog/">Blog</g-link>
 			</nav>
@@ -16,8 +26,18 @@
 import MainLogo from '~/components/svgs/MainLogo.vue';
 
 export default {
+	data() {
+		return {
+			showMenu: false
+		};
+	},
 	components: {
 		MainLogo
+	},
+	methods: {
+		toggleMenu() {
+			this.showMenu = !this.showMenu;
+		}
 	}
 };
 </script>
@@ -34,6 +54,7 @@ export default {
 		justify-content: space-between;
 	}
 	&__logo {
+		z-index: 1000;
 		height: 72px;
 		width: 72px;
 		content: '';
@@ -52,6 +73,51 @@ export default {
 			width: 40px;
 		}
 	}
+
+	.hamburger {
+		position: relative;
+		z-index: 2000;
+		width: 20px;
+		height: 16px;
+		cursor: pointer;
+
+		@include media-breakpoint-up(lg) {
+			display: none;
+		}
+		&__line {
+			height: 3px;
+			background: $text;
+			position: absolute;
+			right: 0;
+			transition: all ease 200ms;
+			&:nth-child(1) {
+				transform-origin: top right;
+				width: 20px;
+			}
+			&:nth-child(2) {
+				width: 15px;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			&:nth-child(3) {
+				transform-origin: bottom right;
+				width: 10px;
+				bottom: 0;
+			}
+		}
+		&:hover {
+			.hamburger__line {
+				width: 100%;
+			}
+		}
+	}
+
+	&__links {
+		display: none;
+		@include media-breakpoint-up(lg) {
+			display: block;
+		}
+	}
 	&__link {
 		@include link;
 		font-size: 1.2rem;
@@ -60,6 +126,61 @@ export default {
 		color: $text;
 		&:last-child {
 			margin-right: 0;
+		}
+	}
+
+	&--active {
+		display: fixed;
+		height: 100vh;
+		width: 100vw;
+		top: 0;
+		left: 0;
+
+		background: linear-gradient(270deg, $accent1, $accent2);
+		background-size: 200% 200%;
+		animation: shade 15s linear infinite both;
+
+		.nav {
+			&__logo {
+				opacity: 0;
+			}
+			&__links {
+				position: fixed;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+			}
+			&__link {
+				font-size: 1.5rem;
+				font-weight: 600;
+				margin: 0 0 30px;
+				color: white;
+				&:before {
+					display: none;
+				}
+			}
+		}
+
+		.hamburger {
+			&__line {
+				background: white;
+				width: 100% !important;
+				&:nth-child(1) {
+					transform: rotate(-45deg);
+				}
+				&:nth-child(2) {
+					transform: translateX(100%);
+					opacity: 0;
+				}
+				&:nth-child(3) {
+					transform: rotate(45deg);
+				}
+			}
 		}
 	}
 }

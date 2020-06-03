@@ -26,7 +26,7 @@ export default {
 
 .comming-soon {
 	@include container;
-	padding: 80px 0 100px;
+	padding: 80px 20px 100px;
 	display: flex;
 
 	a {
@@ -34,24 +34,36 @@ export default {
 	}
 
 	&__content {
-		padding-left: 80px;
 		flex: 1;
+		@include media-breakpoint-up(lg) {
+			padding-left: 80px;
+		}
 		.content {
 			&__title {
 				color: $primary;
-				font-size: 5rem;
+				font-size: 3rem;
 				font-weight: 800;
 				margin-bottom: 20px;
+				@include media-breakpoint-up(lg) {
+					font-size: 5rem;
+				}
 			}
 			&__text {
-				font-size: 2rem;
+				font-size: 1.3rem;
 				line-height: 1.3;
+				@include media-breakpoint-up(lg) {
+					font-size: 2rem;
+				}
 			}
 		}
 	}
 	svg {
-		width: 30%;
-		height: auto;
+		display: none;
+		@include media-breakpoint-up(lg) {
+			width: 30%;
+			height: auto;
+			display: block;
+		}
 	}
 }
 </style>
