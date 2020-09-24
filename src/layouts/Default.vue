@@ -1,8 +1,10 @@
 <template>
 	<div class="layout">
-		<Nav />
-		<!-- Slot in the actual page content -->
-		<slot />
+		<div class="container">
+			<Nav />
+			<!-- Slot in the actual page content -->
+			<slot />
+		</div>
 	</div>
 </template>
 
@@ -30,5 +32,9 @@ body {
 		text-decoration: none;
 		color: inherit;
 	}
+}
+
+.container {
+	@include container;
 }
 </style>

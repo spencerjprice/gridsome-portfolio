@@ -32,7 +32,7 @@ export default {
 @import '~/scss/mixins/link.scss';
 
 .home {
-	@include container;
+	// @include container;
 	padding: 80px 20px 100px;
 
 	&__title {

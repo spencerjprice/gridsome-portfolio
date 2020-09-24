@@ -16,7 +16,8 @@
 			<!-- Here are the actual nav links -->
 			<nav class="nav__links">
 				<g-link class="nav__link" to="/about/">About</g-link>
-				<g-link class="nav__link" to="/blog/">Blog</g-link>
+				<!-- <g-link class="nav__link" to="/blog/">Blog</g-link> -->
+				<g-link class="nav__link" to="/work/">Work</g-link>
 			</nav>
 		</div>
 	</header>
@@ -47,7 +48,7 @@ export default {
 
 .nav {
 	&__container {
-		@include container;
+		// @include container;
 		height: 120px;
 		display: flex;
 		align-items: center;
@@ -121,20 +122,19 @@ export default {
 	&__link {
 		@include link;
 		font-size: 1.2rem;
-		margin: 0 30px;
+		margin-left: 20px;
 		padding: 0 10px;
 		color: $text;
-		&:last-child {
-			margin-right: 0;
-		}
 	}
 
 	&--active {
-		display: fixed;
-		height: 100vh;
-		width: 100vw;
+		position: fixed;
 		top: 0;
 		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1000;
+		padding: 0 20px;
 
 		background: linear-gradient(270deg, $accent1, $accent2);
 		background-size: 200% 200%;

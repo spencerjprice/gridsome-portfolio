@@ -1,5 +1,7 @@
 ---
 title: An awesome
+date: 2020-06-02
+image: https://images.unsplash.com/photo-1531192603123-cd3ad941ee11?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80
 ---
 
 ## An awesome article

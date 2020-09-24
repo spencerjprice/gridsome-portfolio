@@ -25,7 +25,7 @@ export default {
 @import '~/scss/mixins/link.scss';
 
 .comming-soon {
-	@include container;
+	// @include container;
 	padding: 80px 20px 100px;
 	display: flex;
 
